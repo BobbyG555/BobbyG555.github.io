@@ -1,85 +1,443 @@
+
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f6f3ff">
-<meta name="description" content="A few Roblox games I've made. Browse Wither's projects, screenshots and scripting examples.">
-<title>Wither — Games I've made</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101113">
+<meta name="description" content="Wither's Roblox projects and scripting work.">
+<title>Wither</title>
 <style>
-:root{color-scheme:light;--bg:#f6f3ff;--ink:#242039;--muted:#635e78;--purple:#6543df;--line:#ded8ed}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;color:var(--ink);background:var(--bg);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-offset:5px}::selection{background:#d6c8ff;color:var(--ink)}.wrap{width:min(1160px,calc(100% - 64px));margin-inline:auto}.skip{position:absolute;top:-100px;left:20px;padding:12px;background:white;z-index:3}.skip:focus{top:12px}
-.header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:100px;border-bottom:1px solid var(--line)}.brand{display:inline-flex;align-items:center;gap:11px;font-size:23px;font-weight:900;letter-spacing:-.8px;text-decoration:none}.brand-icon{display:grid;place-items:center;width:38px;height:38px;background:var(--purple);color:white;border-radius:12px;transform:rotate(-7deg);font-size:24px}nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:14px;font-weight:700}nav a:hover{color:var(--purple);text-decoration:underline;text-underline-offset:5px}
-.hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px;padding:64px 0 58px}.eyebrow{margin:0 0 16px;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{max-width:780px;margin:0 0 22px;font-size:clamp(42px,5.8vw,74px);line-height:1.05;letter-spacing:-.055em;font-weight:900}h1 span{color:var(--purple)}.intro{max-width:530px;margin:0;font-size:18px;line-height:1.65;color:var(--muted)}.blocks{position:relative;width:160px;height:154px;margin-right:16px}.block{position:absolute;width:69px;height:69px;border:3px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink)}.block:before{content:"";position:absolute;inset:20px;border:3px solid currentColor;border-radius:5px}.block:nth-child(1){background:#c4f3d6;left:3px;top:70px;transform:rotate(-11deg)}.block:nth-child(2){background:#ffcd91;left:80px;top:63px;transform:rotate(12deg)}.block:nth-child(3){background:#b7a1f6;left:40px;top:-7px;transform:rotate(-5deg)}
-.section-top{display:flex;align-items:center;gap:13px;margin-bottom:20px}h2{margin:0;font-size:22px;letter-spacing:-.6px}.count{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#e8e0fc;color:#5940b6;font-size:12px;font-weight:800}.hint{margin:0 0 0 auto;font-size:13px;color:var(--muted)}.games{display:grid;grid-template-columns:1fr 1fr;gap:28px}.game{--colour:#e6dcff;min-width:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 5px 0 #e9e3f4}.game.featured{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);grid-column:1 / -1}.game.bridge{--colour:#c4f3d6}.game.market{--colour:#ffe0b7}.screenshot{position:relative;display:block;overflow:hidden;background:var(--colour);aspect-ratio:16 / 9;text-decoration:none}.featured .screenshot{height:100%;min-height:350px;aspect-ratio:auto}.screenshot img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s ease}.screenshot:hover img{transform:scale(1.025)}.zoom{position:absolute;bottom:16px;right:16px;display:grid;place-items:center;width:38px;height:38px;background:var(--ink);color:#fff;border:1px solid #ffffff60;border-radius:12px;font-size:23px;box-shadow:0 2px 8px #0003}.game-info{padding:30px}.featured .game-info{padding:36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}.type{display:inline-block;padding:6px 10px;border-radius:7px;margin-bottom:17px;background:var(--colour);font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}h3{font-size:clamp(25px,2.6vw,34px);line-height:1.13;letter-spacing:-.045em;margin:0 0 16px;font-weight:900}.game-info p{margin:0;color:var(--muted);font-size:15px;line-height:1.75}.tags{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 0;padding:0}.tags li{padding:6px 9px;border:1px solid var(--line);border-radius:7px;color:#575168;font-size:11px}
-.code-link{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:45px 0 58px;padding:25px 28px;background:#eae3fc;border-radius:16px;text-decoration:none;transition:background .2s ease}.code-link:hover{background:#e0d5fb}.code-link strong{display:block;font-size:18px;margin-bottom:6px;letter-spacing:-.4px}.code-link small{font-size:14px;color:var(--muted)}.code-link .arrow{font-size:30px;color:var(--purple)}footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:25px 0 35px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}footer strong{color:var(--ink)}footer a{text-underline-offset:4px}
-dialog{width:min(1400px,calc(100% - 40px));max-height:calc(100dvh - 40px);padding:0;color:#fff;background:#242039;border:1px solid #ffffff30;border-radius:16px;box-shadow:0 20px 80px #0008}dialog::backdrop{background:#151020d9}.viewer-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 18px}.viewer-bar p{margin:0;font-size:14px}.close{border:1px solid #ffffff50;border-radius:8px;background:transparent;color:#fff;padding:8px 12px;cursor:pointer}.close:focus-visible{outline-color:#c9b7ff}.viewer-image{display:block;max-width:100%;max-height:calc(100dvh - 115px);margin:auto;object-fit:contain}
-@media(min-width:800px){.featured h3{max-width:250px;font-size:42px}}
-@media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{gap:16px;padding:44px 0}.blocks{transform:scale(.8);transform-origin:right center;width:140px;margin-right:0}.game.featured{grid-template-columns:1fr}.featured .screenshot{min-height:0;height:auto;aspect-ratio:16 / 9}.featured .game-info,.game-info{padding:25px}.games{gap:20px}nav{gap:20px}}
-@media(max-width:560px){.header{min-height:80px;gap:12px}.brand{font-size:21px}.brand-icon{width:32px;height:32px;font-size:21px;border-radius:10px}nav{gap:16px}nav a{font-size:12px}.hero{display:block;padding:40px 0}h1{font-size:clamp(39px,10.5vw,58px)}.intro{font-size:16px}.blocks{display:none}.games{grid-template-columns:1fr;gap:24px}.hint{font-size:11px}h2{font-size:19px}.section-top{gap:9px}.code-link{padding:22px;margin:32px 0 40px}footer{align-items:flex-start;font-size:12px}.viewer-bar{padding:10px}dialog{width:calc(100% - 20px)}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.screenshot:hover img{transform:none}}
+:root{
+  color-scheme:dark;
+  --bg:#101113;
+  --panel:#181a1d;
+  --ink:#f2f1ed;
+  --secondary:#a5a6a9;
+  --subtle:#73767c;
+  --line:#303236;
+  --accent:#d6e8a5;
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit}
+
+a:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:5px;
+}
+
+::selection{
+  background:var(--accent);
+  color:var(--bg);
+}
+
+.wrap{
+  width:min(var(--max),calc(100% - 80px));
+  margin-inline:auto;
+}
+
+/* HERO */
+
+.hero{
+  padding:125px 0 105px;
+}
+
+h1{
+  font-size:clamp(48px,6.6vw,94px);
+  line-height:1.02;
+  letter-spacing:-.082em;
+  margin:0 0 28px;
+  max-width:1000px;
+  font-weight:690;
+}
+
+h1 em{
+  font-style:normal;
+  color:var(--ink);
+}
+
+.lead{
+  max-width:680px;
+  color:var(--secondary);
+  font-size:18px;
+  line-height:1.75;
+  margin:0;
+}
+
+/* SECTIONS */
+
+.section{
+  border-top:1px solid var(--line);
+  padding:31px 0 95px;
+}
+
+.section-top{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:42px;
+  gap:20px;
+}
+
+.section-top h2{
+  font-size:17px;
+  letter-spacing:-.03em;
+  font-weight:650;
+  margin:0;
+}
+
+/* PROJECTS */
+
+.projects{
+  display:grid;
+  gap:80px;
+}
+
+.project{
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(280px,.8fr);
+  gap:42px;
+  align-items:center;
+}
+
+.project-image{
+  display:block;
+  overflow:hidden;
+  background:#242629;
+  border:1px solid #35373a;
+  aspect-ratio:16/9;
+}
+
+.project-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+
+.project-image:hover img{
+  transform:scale(1.025);
+}
+
+.project-info h3{
+  font-size:clamp(26px,3vw,39px);
+  letter-spacing:-.055em;
+  line-height:1.12;
+  font-weight:650;
+  margin:0 0 16px;
+}
+
+.project-info p{
+  color:var(--secondary);
+  line-height:1.8;
+  font-size:15px;
+  margin:0;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:26px;
+}
+
+.tags span{
+  border:1px solid var(--line);
+  padding:7px 10px;
+  color:#c6c7c9;
+  font-size:11px;
+  letter-spacing:.01em;
+}
+
+.project:nth-child(even) .project-image{
+  order:2;
+}
+
+.project:nth-child(even) .project-info{
+  order:1;
+}
+
+/* ABOUT */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:90px;
+}
+
+.about-statement{
+  font-size:clamp(25px,3vw,38px);
+  line-height:1.35;
+  letter-spacing:-.045em;
+  font-weight:570;
+  max-width:530px;
+  margin:0;
+}
+
+.about-statement span{
+  color:var(--accent);
+}
+
+.capabilities{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 22px;
+  align-content:start;
+}
+
+.capabilities div{
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+  color:var(--secondary);
+}
+
+.capabilities div:before{
+  content:"↗";
+  color:var(--accent);
+  margin-right:10px;
+}
+
+/* FOOTER */
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:32px 0 42px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:var(--subtle);
+  font-size:12px;
+}
+
+.footer strong{
+  color:var(--ink);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .project{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .project:nth-child(even) .project-image,
+  .project:nth-child(even) .project-info{
+    order:initial;
+  }
+
+  .projects{gap:65px}
+  .about-grid{gap:40px}
+}
+
+@media(max-width:600px){
+  .wrap{width:calc(100% - 36px)}
+
+  .hero{
+    padding:85px 0 75px;
+  }
+
+  h1{
+    font-size:clamp(46px,11vw,67px);
+  }
+
+  .lead{font-size:16px}
+
+  .section{padding-bottom:70px}
+
+  .section-top{margin-bottom:27px}
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:26px;
+  }
+
+  .capabilities{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer{
+    flex-direction:column;
+    gap:9px;
+  }
+
+  .project-image{
+    aspect-ratio:16/10;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+
+  .project-image img{transition:none}
+
+  .project-image:hover img{transform:none}
+}
 </style>
 </head>
-<body id="top">
-<a class="skip" href="#projects">Skip to the games</a>
-<header class="wrap header">
-  <a class="brand" href="#top" aria-label="Wither, back to top"><span class="brand-icon" aria-hidden="true">w.</span>Wither</a>
-  <nav aria-label="Main navigation"><a href="#projects">The games</a><a href="https://github.com/BobbyG555/withers-cod-e-xamples" target="_blank" rel="noopener">Code examples ↗</a></nav>
-</header>
+
+<body>
+
 <main class="wrap">
-  <section class="hero" aria-labelledby="intro-title">
-    <div><p class="eyebrow">Wither's Roblox projects</p><h1 id="intro-title">Some games<br><span>I've made.</span></h1><p class="intro">Here's a look at a few games I've worked on, and what I built for each one.</p></div>
-    <div class="blocks" aria-hidden="true"><span class="block"></span><span class="block"></span><span class="block"></span></div>
-  </section>
-  <section id="projects" aria-labelledby="games-title">
-    <div class="section-top"><h2 id="games-title">The games</h2><span class="count" aria-label="3 projects">3</span><p class="hint">Click a screenshot for a closer look.</p></div>
-    <div class="games">
-      <article class="game featured">
-        <a class="screenshot" href="assets/escape-the-skybox.png" target="_blank" rel="noopener" aria-label="Enlarge Escape the Skybox screenshot" data-title="Escape the Skybox">
-          <img src="assets/escape-the-skybox.png" alt="Escape the Skybox gameplay, with a block-built landscape, cars and a rocket" width="1357" height="756" fetchpriority="high"><span class="zoom" aria-hidden="true">⤢</span>
-        </a>
-        <div class="game-info"><span class="type">Gameplay & progression</span><h3>Escape the Skybox</h3><p>Escape the skybox and earn coins. I built the game and its scripting from the ground up, including the core gameplay and progression.</p><ul class="tags" aria-label="My work on Escape the Skybox"><li>Full game scripting</li><li>Gameplay</li><li>Coin progression</li></ul></div>
-      </article>
-      <article class="game bridge">
-        <a class="screenshot" href="assets/bridge-to-ugc.png" target="_blank" rel="noopener" aria-label="Enlarge Bridge to UGC screenshot" data-title="Bridge to UGC">
-          <img src="assets/bridge-to-ugc.png" alt="Bridge to UGC Roblox gameplay" width="1324" height="553" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">⤢</span>
-        </a>
-        <div class="game-info"><span class="type">Building & progression</span><h3>Bridge to UGC</h3><p>A bridge-building progression game. I handled the game logic, including anti-cheat and the systems connecting the client and server.</p><ul class="tags" aria-label="My work on Bridge to UGC"><li>Anti-cheat</li><li>Client / server</li><li>Progression</li></ul></div>
-      </article>
-      <article class="game market">
-        <a class="screenshot" href="assets/own-a-supermarket.png" target="_blank" rel="noopener" aria-label="Enlarge Own A Supermarket screenshot" data-title="Own A Supermarket!">
-          <img src="assets/own-a-supermarket.png" alt="Own A Supermarket Roblox gameplay" width="1438" height="684" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">⤢</span>
-        </a>
-        <div class="game-info"><span class="type">Made with another developer</span><h3>Own A Supermarket!</h3><p>Developed alongside one other developer. I worked on the game systems, including anti-cheat, client/server logic and friend boosts.</p><ul class="tags" aria-label="My work on Own A Supermarket"><li>Game systems</li><li>Anti-cheat</li><li>Friend boosts</li></ul></div>
-      </article>
+
+<section class="hero">
+  <h1>
+    Hey, I'm <em>Wither.</em><br>
+    I make Roblox games and their systems.
+  </h1>
+
+  <p class="lead">
+    I script fast and write my code myself, without any AI scripts.
+    Gameplay, progression, anti-cheat, and the server-side stuff
+    that holds it in place.
+  </p>
+</section>
+
+<section id="projects" class="section">
+  <div class="section-top">
+    <h2>Selected projects</h2>
+  </div>
+
+  <div class="projects">
+
+    <article class="project">
+      <a class="project-image"
+         href="assets/escape-the-skybox.png"
+         target="_blank"
+         rel="noopener"
+         aria-label="View Escape the Skybox screenshot">
+
+        <img
+          src="assets/escape-the-skybox.png"
+          alt="Escape the Skybox Roblox gameplay"
+          fetchpriority="high">
+      </a>
+
+      <div class="project-info">
+        <h3>Escape the Skybox</h3>
+
+        <p>
+          Escape the skybox and earn coins.
+          I built the game and its scripting from the ground up,
+          including the core gameplay and progression.
+        </p>
+
+        <div class="tags">
+          <span>Full game scripting</span>
+          <span>Gameplay</span>
+          <span>Coin progression</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="project-image"
+         href="assets/bridge-to-ugc.png"
+         target="_blank"
+         rel="noopener"
+         aria-label="View Bridge to UGC screenshot">
+
+        <img
+          src="assets/bridge-to-ugc.png"
+          alt="Bridge to UGC Roblox gameplay"
+          loading="lazy">
+      </a>
+
+      <div class="project-info">
+        <h3>Bridge to UGC</h3>
+
+        <p>
+          A bridge-building progression game with working
+          anti-cheat and client/server systems.
+          I handled the game logic myself.
+        </p>
+
+        <div class="tags">
+          <span>Anti-cheat</span>
+          <span>Client / server</span>
+          <span>Progression</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="project-image"
+         href="assets/own-a-supermarket.png"
+         target="_blank"
+         rel="noopener"
+         aria-label="View Own A Supermarket screenshot">
+
+        <img
+          src="assets/own-a-supermarket.png"
+          alt="Own A Supermarket Roblox gameplay"
+          loading="lazy">
+      </a>
+
+      <div class="project-info">
+        <h3>Own A Supermarket!</h3>
+
+        <p>
+          Developed alongside one other developer.
+          I worked on the game systems, including anti-cheat,
+          client/server logic, and friend boosts.
+        </p>
+
+        <div class="tags">
+          <span>Game systems</span>
+          <span>Anti-cheat</span>
+          <span>Friend boosts</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="section-top">
+    <h2>What I do</h2>
+  </div>
+
+  <div class="about-grid">
+    <p class="about-statement">
+      Fast scripting,
+      <span>no AI-generated code,</span>
+      and code that works.
+    </p>
+
+    <div class="capabilities">
+      <div>Luau scripting</div>
+      <div>Gameplay mechanics</div>
+      <div>Client/server logic</div>
+      <div>Anti-cheat</div>
+      <div>Progression & economies</div>
+      <div>Social game features</div>
     </div>
-  </section>
-  <a class="code-link" href="https://github.com/BobbyG555/withers-cod-e-xamples" target="_blank" rel="noopener"><span><strong>Want to see some code?</strong><small>Take a look at my scripting examples on GitHub.</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
 </main>
-<footer class="wrap"><span><strong>Wither</strong> · Roblox games & scripting</span><a href="#top">Back to top ↑</a></footer>
-<dialog aria-labelledby="viewer-title">
-  <div class="viewer-bar"><p id="viewer-title">Game screenshot</p><form method="dialog"><button class="close" aria-label="Close screenshot">Close ×</button></form></div>
-  <img class="viewer-image" alt="">
-</dialog>
-<script>
-const viewer = document.querySelector('dialog');
-const viewerImage = viewer.querySelector('img');
-const viewerTitle = document.getElementById('viewer-title');
-document.querySelectorAll('.screenshot').forEach(link => {
-  link.addEventListener('click', event => {
-    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || typeof viewer.showModal !== 'function') return;
-    event.preventDefault();
-    viewerImage.src = link.href;
-    viewerImage.alt = link.querySelector('img').alt;
-    viewerTitle.textContent = link.dataset.title;
-    viewer.showModal();
-  });
-});
-viewer.addEventListener('click', event => {
-  if (event.target !== viewer) return;
-  const box = viewer.getBoundingClientRect();
-  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) viewer.close();
-});
-</script>
+
+<footer class="wrap footer">
+  <span><strong>Wither</strong></span>
+  <span>Hi!</span>
+</footer>
+
 </body>
 </html>
